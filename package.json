@@ -2,10 +2,6 @@
   "name": "axolotis-module-base",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ApteroSAS/axolotis-module-base.git"
@@ -16,7 +12,41 @@
     "url": "https://github.com/ApteroSAS/axolotis-module-base/issues"
   },
   "homepage": "https://github.com/ApteroSAS/axolotis-module-base#readme",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.js -t",
+    "watch": "npm run build -- -w",
+    "dev": "npm run build -- -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
-    "inversify": "^6.0.1"
+    "file-saver": "^2.0.5",
+    "inversify": "^6.0.1",
+    "localforage": "^1.10.0",
+    "sscd": "^1.5.1"
+  },
+  "devDependencies": {
+    "jest": "^29.4.3",
+    "@types/jest": "^29.4.0",
+    "typescript": "^4.9.5",
+
+    "fs-extra": "^10.0.0",
+    "esbuild": "^0.14.5",
+    "ora": "^6.0.1",
+    "gradient-string": "^2.0.0",
+    "sloc": "^0.2.1",
+    "human-readable": "^0.2.1",
+    "brotli-size": "^4.0.0",
+    "gzip-size": "^7.0.0",
+    "minimist": "^1.2.5"
   }
 }
