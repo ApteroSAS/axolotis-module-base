@@ -1,5 +1,5 @@
 {
-  "name": "axolotis-module-base",
+  "name": "@aptero/axolotis-module-base",
   "version": "1.0.0",
   "description": "",
   "repository": {
@@ -24,8 +24,7 @@
   },
   "scripts": {
     "build": "node scripts/build.js -t",
-    "watch": "npm run build -- -w",
-    "dev": "npm run build -- -w",
+    "dev": "node scripts/build.js -t -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
