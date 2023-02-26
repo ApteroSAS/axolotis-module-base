@@ -6837,6 +6837,58 @@ var FrameLoop = class {
 };
 
 // src/services/input/InputService.ts
+var KeyboardKey = class {
+  constructor(keyCode, type = "any") {
+    this.keyCode = keyCode;
+    this.type = type;
+  }
+  getType() {
+    return "keyboard";
+  }
+};
+var MouseButton = class {
+  constructor(btn = "Mouse-0", type = "any") {
+    this.btn = btn;
+    this.type = type;
+  }
+  getType() {
+    return "mouse_click";
+  }
+};
+var MouseWheel = class {
+  constructor(type = "any") {
+    this.type = type;
+  }
+  getType() {
+    return "mouse_wheel";
+  }
+};
+var MouseAxis = class {
+  constructor(type = "x") {
+    this.type = type;
+  }
+  getType() {
+    return "mouse_axis";
+  }
+};
+var Compound1DInput = class {
+  constructor(eventXPositive, eventXNegative) {
+    this.eventXPositive = eventXPositive;
+    this.eventXNegative = eventXNegative;
+  }
+  getType() {
+    return "compound_1d";
+  }
+};
+var Compound2DInput = class {
+  constructor(eventX, eventY) {
+    this.eventX = eventX;
+    this.eventY = eventY;
+  }
+  getType() {
+    return "compound_2d";
+  }
+};
 var MouseManager = class {
   constructor(parent) {
     this.parent = parent;
@@ -7404,8 +7456,20 @@ var AxBasicModule = class {
   }
 };
 export {
+  ANIMATION_FRAME_LOOP,
   AxBasicModule,
-  IdService2 as IdService
+  Compound1DInput,
+  Compound2DInput,
+  FrameLoop,
+  INTERVAL_SET_1S,
+  IdService,
+  InputService,
+  KeyboardKey,
+  MouseAxis,
+  MouseButton,
+  MouseWheel,
+  SaveManager,
+  SerializerEngine
 };
 /*!
     localForage -- Offline Storage, Improved

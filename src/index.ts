@@ -6,6 +6,13 @@ import {InputService} from "./services/input/InputService";
 import {SerializerEngine} from "./services/serializer/SerializerEngine";
 import {SaveManager} from "./services/save/SaveManager";
 
+export * from "./services/loop/FrameLoop";
+export * from "./services/input/InputService";
+export * from "./services/serializer/SerializerEngine";
+export * from "./services/serializer/Serializer";
+export * from "./services/save/SaveManager";
+export {IdService} from "./services/IdService";
+
 export * from "./Identifier";
 
 export class AxBasicModule implements AxModule{

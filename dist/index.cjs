@@ -6651,8 +6651,20 @@ var require_localforage = __commonJS({
 // src/index.ts
 var src_exports = {};
 __export(src_exports, {
+  ANIMATION_FRAME_LOOP: () => ANIMATION_FRAME_LOOP,
   AxBasicModule: () => AxBasicModule,
-  IdService: () => IdService2
+  Compound1DInput: () => Compound1DInput,
+  Compound2DInput: () => Compound2DInput,
+  FrameLoop: () => FrameLoop,
+  INTERVAL_SET_1S: () => INTERVAL_SET_1S,
+  IdService: () => IdService,
+  InputService: () => InputService,
+  KeyboardKey: () => KeyboardKey,
+  MouseAxis: () => MouseAxis,
+  MouseButton: () => MouseButton,
+  MouseWheel: () => MouseWheel,
+  SaveManager: () => SaveManager,
+  SerializerEngine: () => SerializerEngine
 });
 module.exports = __toCommonJS(src_exports);
 var import_inversify2 = __toESM(require_inversify(), 1);
@@ -6841,6 +6853,58 @@ var FrameLoop = class {
 };
 
 // src/services/input/InputService.ts
+var KeyboardKey = class {
+  constructor(keyCode, type = "any") {
+    this.keyCode = keyCode;
+    this.type = type;
+  }
+  getType() {
+    return "keyboard";
+  }
+};
+var MouseButton = class {
+  constructor(btn = "Mouse-0", type = "any") {
+    this.btn = btn;
+    this.type = type;
+  }
+  getType() {
+    return "mouse_click";
+  }
+};
+var MouseWheel = class {
+  constructor(type = "any") {
+    this.type = type;
+  }
+  getType() {
+    return "mouse_wheel";
+  }
+};
+var MouseAxis = class {
+  constructor(type = "x") {
+    this.type = type;
+  }
+  getType() {
+    return "mouse_axis";
+  }
+};
+var Compound1DInput = class {
+  constructor(eventXPositive, eventXNegative) {
+    this.eventXPositive = eventXPositive;
+    this.eventXNegative = eventXNegative;
+  }
+  getType() {
+    return "compound_1d";
+  }
+};
+var Compound2DInput = class {
+  constructor(eventX, eventY) {
+    this.eventX = eventX;
+    this.eventY = eventY;
+  }
+  getType() {
+    return "compound_2d";
+  }
+};
 var MouseManager = class {
   constructor(parent) {
     this.parent = parent;
@@ -7409,8 +7473,20 @@ var AxBasicModule = class {
 };
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  ANIMATION_FRAME_LOOP,
   AxBasicModule,
-  IdService
+  Compound1DInput,
+  Compound2DInput,
+  FrameLoop,
+  INTERVAL_SET_1S,
+  IdService,
+  InputService,
+  KeyboardKey,
+  MouseAxis,
+  MouseButton,
+  MouseWheel,
+  SaveManager,
+  SerializerEngine
 });
 /*!
     localForage -- Offline Storage, Improved
